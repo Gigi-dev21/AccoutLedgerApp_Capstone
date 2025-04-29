@@ -19,7 +19,7 @@ public class AccountTransactions {
 
 
     public void handleTransactions(String type){
-        System.out.println("-- " + (type.equals("addDeposit") ? "Add Deposit" : "Make Payment") + " --");
+        System.out.println("\n"+ "-- " + (type.equals("addDeposit") ? "Add Deposit" : "Make Payment") + " --");
 
         System.out.print("Please enter vendor name: ");
         String vendorName = scanner.nextLine();
