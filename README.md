@@ -19,6 +19,7 @@ Project Features:
              - Inside the method:
                 - Use a scanner object to access the user inputs. 
                 - Prompt the user to enter the deposit amount, description, and vendor name, and store these inputs in variables.
+                - If not inserted a number/double, create a condition to avoid errors.
                 - Display the user input and ask if it correct or not, if yes continue.
                 - Use Java's date and time APIs to capture the current timestamp.
                 - Use a Filewriter to write in the csv file.
