@@ -9,7 +9,7 @@ public class LedgerScreen {
 
     public void displayLedgerOptions() {
         while (!letterInserted.equalsIgnoreCase("h")) {
-            System.out.println("************** Ledger Screen **************");
+            System.out.println("\n"+"************** Ledger Screen **************");
             System.out.println("A) All - Display all entries");
             System.out.println("D) Deposits - Display deposits only");
             System.out.println("P) Payments - Display payments only");
