@@ -7,6 +7,7 @@ public class Reports {
     Scanner scanner = new Scanner(System.in);
     String reportChoice = "";
     ReportFilters reportFilters = new ReportFilters();
+    CustomSearch customSearch= new CustomSearch();
 
     public void displayReportOptions() {
         while (!reportChoice.equals("0")) {
@@ -38,7 +39,7 @@ public class Reports {
                     reportFilters.filters("searchByVendorName");
                     break;
                 case "6":
-
+                    customSearch.customSearchOptionDisplay();
                     break;
                 case "0":
                     System.out.println("Going back to the report page");
