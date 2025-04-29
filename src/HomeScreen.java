@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 public class HomeScreen {
+    AccountTransactions accountTransactions=new AccountTransactions();
+
     public void displayHomeScreen() {
         Scanner scanner = new Scanner(System.in);
         String letterInserted = "";
@@ -16,14 +18,14 @@ public class HomeScreen {
 
             switch (letterInserted){
                 case "D":
-//                    accountTransactions.addDeposit();
+                    accountTransactions.addDeposit();
                     break;
                 case "P":
-//                    accountTransactions.makePayment();
+                    accountTransactions.makePayment();
                     break;
                 case "L":
-//                    Ledger ledger = new Ledger();
-//                    ledger.displayLedgerOptions();
+                    Ledger ledger = new Ledger();
+                    ledger.displayLedgerOptions();
                     break;
                 case "X":
                     System.out.println("---Exiting the application.---\n");
