@@ -37,9 +37,32 @@ Project Features:
              - Inside the displayLedgerOptions, create a while loop that continuously displays the ledger screen options until the user chooses to exit (inputs "H").
              - Within the loop, use a switch statement to handle different menu choices:
                 - A) All - Display all entries
-                  
                 - D) Deposits - Display only the entries that are deposits into theaccount
                 - P) Payments - Display only the negative entries (or payments)
+                   - For those 3 conditions above I created:
+                     - Createed a class named TransactionFilters.
+                       - Inside TransactionFilters created 3 methods called:
+                         -  TransactionStore:
+                            - This class holds a shared ArrayList called allTransactions.
+                            - it lets other classes access the list of transactions.
+                              
+                         - getTransactionFromFile:
+                            - Reads the transactions.csv file using a Scanner
+                            - Use a while loop to read each line one by one and splits each line using .split("|") so we can separate the fields.
+                            - Convert the amount from a string to a double using Double.parseDouble().
+                            - Create a new TransactionsClass object using the values and adds it to the allTransactions Arraylist by calling the constructor you made.
+                              
+                         - displayAllTransactionsFilter:
+                            - Receives a type (as a String) that decides what kind of transactions to display.( 3 types displayDepositOnly, displayPaymentsOnly, displayAllTransactions)
+                            - alls getTransactionFromFile() to read and load all the transactions from the CSV file into the list.
+                            - Create switch statement to print the header depending on the type
+                            - Loops through each transaction in the list.
+                            - Uses another switch to decide:
+                               - If this transaction should be printed (based on the filter type).
+                               - Example: If type == displayDepositOnly → only print if amount > 0.
+                            - Prints the transaction if it matches the filter.
+
+                       
                 - R) Reports - A new screen that allows the user to run pre-defined reports or to run a custom search
                      - 1) Month To Date
                      - 2) Previous Month
