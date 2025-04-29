@@ -40,7 +40,7 @@ Project Features:
                 - D) Deposits - Display only the entries that are deposits into theaccount
                 - P) Payments - Display only the negative entries (or payments)
                    - For those 3 conditions above I created:
-                     - Createed a class named TransactionFilters.
+                     - Created a class named TransactionFilters.
                        - Inside TransactionFilters created 3 methods called:
                          -  TransactionStore:
                             - This class holds a shared ArrayList called allTransactions.
@@ -57,12 +57,10 @@ Project Features:
                             - alls getTransactionFromFile() to read and load all the transactions from the CSV file into the list.
                             - Create switch statement to print the header depending on the type
                             - Loops through each transaction in the list.
-                            - Uses another switch to decide:
-                               - If this transaction should be printed (based on the filter type).
-                               - Example: If type == displayDepositOnly → only print if amount > 0.
+                            - Uses another switch to decide If this transaction should be printed (based on the filter type).Example: If type == displayDepositOnly only print if amount > 0.
                             - Prints the transaction if it matches the filter.
+                            - After all that, go to LedgerScreen and call the method and pass the type.
 
-                       
                 - R) Reports - A new screen that allows the user to run pre-defined reports or to run a custom search
                      - 1) Month To Date
                      - 2) Previous Month
