@@ -42,7 +42,7 @@ public class AccountTransactions {
 
         // Display the users input
         System.out.println(
-                "Date: " + formattedDate + "\n" +
+                "\n"+ "Date: " + formattedDate + "\n" +
                         "Time: " + formattedTime + "\n" +
                         "Vendor Name: " + vendorName + "\n" +
                         "Amount: $" + amount + "\n" +
