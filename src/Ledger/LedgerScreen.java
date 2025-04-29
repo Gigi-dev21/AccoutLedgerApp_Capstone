@@ -6,10 +6,11 @@ public class LedgerScreen {
     Scanner scanner = new Scanner(System.in);
     String letterInserted = "";
     TransactionsFilters transactionsFilters = new TransactionsFilters();
+    Reports reports = new Reports();
 
     public void displayLedgerOptions() {
         while (!letterInserted.equalsIgnoreCase("h")) {
-            System.out.println("\n"+"************** Ledger Screen **************");
+            System.out.println("\n" + "************** Ledger Screen **************");
             System.out.println("A) All - Display all entries");
             System.out.println("D) Deposits - Display deposits only");
             System.out.println("P) Payments - Display payments only");
@@ -29,7 +30,7 @@ public class LedgerScreen {
                     transactionsFilters.displayAllTransactionsFilter("displayPaymentsOnly");
                     break;
                 case "R":
-
+                    reports.displayReportOptions();
                     break;
                 case "H":
                     System.out.println("---Going back to the home page---\n");
