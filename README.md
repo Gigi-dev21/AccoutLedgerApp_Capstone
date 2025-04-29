@@ -62,12 +62,16 @@ Project Features:
                             - After all that, go to LedgerScreen and call the method and pass the type.
 
                 - R) Reports - A new screen that allows the user to run pre-defined reports or to run a custom search
-                     - 1) Month To Date
-                     - 2) Previous Month
-                     - 3) Year To Date
-                     - 4) Previous Year
-                     - 5) Search by Vendor - prompt the user for the vendor nameand display all entries for that vendor
-                     - 6) Custom Search - prompt the user for the following search values.
+                     - 1) Month To Date: Month to Date" (MTD) means from the start of the current month up to today
+                     - 2) Previous Month: Previous Month refers to the entire month before the current one
+                     - 3) Year To Date: Year to Date (YTD) refers to the period from the beginning of the current year up to the present date 
+                     - 4) Previous Year: Previous Year refers to the year that occurred immediately before the current year
+                     - 5) Search by Vendor :prompt the user for the vendor nameand display all entries for that vendor
+                          - For those 5 conditions above I created:
+                             - Created filters method inside the ReportFilter class.
+                             - 
+                     - 6) Custom Search: prompt the user for the following search values.
+                         
                      - 0) Back - go back to the ledger page
                 - H) Home - go back to the home page
               
