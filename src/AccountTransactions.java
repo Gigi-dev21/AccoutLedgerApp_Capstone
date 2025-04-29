@@ -24,9 +24,18 @@ public class AccountTransactions {
         System.out.print("Please enter vendor name: ");
         String vendorName = scanner.nextLine();
 
-        System.out.print("Please enter the amount: ");
-        double amount = scanner.nextDouble();
-        scanner.nextLine();
+        double amount = 0;
+        while (true) {
+            System.out.print("Please enter the amount: ");
+            if (scanner.hasNextDouble()) {
+                amount = scanner.nextDouble();
+                scanner.nextLine();
+                break;
+            } else {
+                System.out.println("Invalid input. Please enter a valid number.");
+                scanner.nextLine();
+            }
+        }
 
         System.out.print("Please enter a description: ");
         String description = scanner.nextLine();
@@ -64,9 +73,6 @@ public class AccountTransactions {
        handleTransactions("addDeposit");
     }
 
-
-    public void makePayment() {
-        handleTransactions("makePayment");
-    }
+    public void makePayment() {handleTransactions("makePayment");}
 
 }
