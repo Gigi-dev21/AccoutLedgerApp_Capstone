@@ -38,13 +38,13 @@ public class TransactionsFilters {
 
         switch (type) {
             case "displayDepositOnly":
-                System.out.println("********** Displaying Deposit Transactions **********");
+                System.out.println("\n"+"********** Displaying Deposit Transactions **********");
                 break;
             case "displayPaymentsOnly":
-                System.out.println("********** Displaying Payment Transactions **********");
+                System.out.println("\n"+"********** Displaying Payment Transactions **********");
                 break;
             case "displayAllTransactions":
-                System.out.println("********** Displaying All Transactions **********");
+                System.out.println("\n"+"********** Displaying All Transactions **********");
                 break;
             default:
                 System.out.println("❌ Invalid filter type");
