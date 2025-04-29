@@ -33,14 +33,47 @@ public class TransactionsFilters {
         }
     }
 
-    public void displayDepositOnly(){
+    public void displayAllTransactionsFilter(String type) {
         getTransactionFromFile();
-        System.out.println("**********************Displaying Deposit Transactions Only************************");
+
+        switch (type) {
+            case "displayDepositOnly":
+                System.out.println("********** Displaying Deposit Transactions **********");
+                break;
+            case "displayPaymentsOnly":
+                System.out.println("********** Displaying Payment Transactions **********");
+                break;
+            case "displayAllTransactions":
+                System.out.println("********** Displaying All Transactions **********");
+                break;
+            default:
+                System.out.println("❌ Invalid filter type");
+                return;
+        }
+
         System.out.printf("%-12s %-10s %-30s %-20s %-10s%n",
                 "Date", "Time", "Description", "Vendor", "Amount");
         System.out.println("--------------------------------------------------------------------------------");
+
         for (TransactionsClass transaction : TransactionStore.allTransactions) {
-            if (transaction.getAmount() > 0) {
+            boolean shouldPrint;
+
+            switch (type) {
+                case "displayDepositOnly":
+                    shouldPrint = transaction.getAmount() > 0;
+                    break;
+                case "displayPaymentsOnly":
+                    shouldPrint = transaction.getAmount() <= 0;
+                    break;
+                case "displayAllTransactions":
+                    shouldPrint = true;
+                    break;
+                default:
+                    shouldPrint = false;
+                    break;
+            }
+
+            if (shouldPrint) {
                 System.out.printf("%-12s %-10s %-30s %-20s %10.2f%n",
                         transaction.getDate(),
                         transaction.getTime(),
@@ -51,37 +84,4 @@ public class TransactionsFilters {
         }
     }
 
-    public void displayPaymentsOnly(){
-        getTransactionFromFile();
-        System.out.println("*********************** Displaying Payment Transactions Only *************************");
-        System.out.printf("%-12s %-10s %-30s %-20s %-10s%n",
-                "Date", "Time", "Description", "Vendor", "Amount");
-        System.out.println("--------------------------------------------------------------------------------");
-        for (TransactionsClass transaction : TransactionStore.allTransactions) {
-            if (transaction.getAmount() <= 0) {
-                System.out.printf("%-12s %-10s %-30s %-20s %10.2f%n",
-                        transaction.getDate(),
-                        transaction.getTime(),
-                        transaction.getDescription(),
-                        transaction.getVendor(),
-                        transaction.getAmount());
-            }
-        }
-    }
-
-    public void displayAllTransactions() {
-        getTransactionFromFile();
-        System.out.println("**************************Displaying All Transactions*************************");
-        System.out.printf("%-12s %-10s %-30s %-20s %-10s%n",
-                "Date", "Time", "Description", "Vendor", "Amount");
-        System.out.println("-------------------------------------------------------------------------------------------------------");
-        for (TransactionsClass transaction : TransactionStore.allTransactions) {
-            System.out.printf("%-12s %-10s %-30s %-20s %10.2f%n",
-                    transaction.getDate(),
-                    transaction.getTime(),
-                    transaction.getDescription(),
-                    transaction.getVendor(),
-                    transaction.getAmount());
-        }
-    }
 }
