@@ -68,9 +68,21 @@ Project Features:
                      - 4) Previous Year: Previous Year refers to the year that occurred immediately before the current year
                      - 5) Search by Vendor :prompt the user for the vendor nameand display all entries for that vendor
                           - For those 5 conditions above I created:
-                             - Created filters method inside the ReportFilter class.
-                             - 
+                             - Created a method called filters inside the ReportFilters class.
+                             - filters method accepts a filter type as an argument (e.g., "monthToDate", "previousMonth", "yearToDate", "previousYear", "searchByVendorName").
+                             - Called the getTransactionFromFile from TransactionsFilters so that it can load the files.
+                             - Define the required date ranges (e.g., start of the current month, first day of the previous month, etc.) using LocalDate for comparisons.
+                             - Inside the filters method, use a switch statement to check the type of filter requested.
+                             - Create a while lopp that will go over the transaction and filter based in the case.
+                             - For each filter type (e.g., "monthToDate", "previousMonth", "yearToDate", etc.), check whether the transaction date falls within the desired range.
+                             - For the "searchByVendorName" filter, prompt the user for a vendor's name, and filter the transactions based on whether the vendor name matches the input.
                      - 6) Custom Search: prompt the user for the following search values.
+                          - Create a custom serach class and inside delcare a method named customSearchOptionDisplay
+                          - Ask user all the innput(start date, end date, vendor name, amout)
+                          - Use scanner, get user and store it on varaibles
+                          - Called the getTransactionFromFile from TransactionsFilters so that it can load the files.
+                          - Create a foor loop that goes over the getTransactionFromFile and based on that filter it.
+    
                          
                      - 0) Back - go back to the ledger page
                 - H) Home - go back to the home page
