@@ -1,3 +1,5 @@
+import Ledger.LedgerScreen;
+
 import java.util.Scanner;
 
 public class HomeScreen {
@@ -24,8 +26,8 @@ public class HomeScreen {
                     accountTransactions.makePayment();
                     break;
                 case "L":
-//                    Ledger ledger = new Ledger();
-//                    ledger.displayLedgerOptions();
+                    LedgerScreen ledger = new LedgerScreen();
+                    ledger.displayLedgerOptions();
                     break;
                 case "X":
                     System.out.println("---Exiting the application.---\n");
