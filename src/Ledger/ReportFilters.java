@@ -13,8 +13,7 @@ public class ReportFilters {
     LocalDate lastDayOfPreviousMonth = today.withDayOfMonth(1).minusDays(1);
     LocalDate startOfYear = today.withDayOfYear(1);
     LocalDate startOfPreviousYear = today.minusYears(1).withDayOfYear(1);
-    LocalDate endOfPreviousYear = today.minusYears(1).withDayOfYear(365);
-
+    LocalDate endOfPreviousYear = today.minusYears(1).withMonth(12).withDayOfMonth(31);
 
     public void filters(String type) {
         getTransactionFromFile.getTransactionFromFile();
@@ -72,7 +71,7 @@ public class ReportFilters {
                     matches=!transactionDate.isBefore(startOfPreviousYear) && !transactionDate.isAfter(endOfPreviousYear);
                     break;
                 case "searchByVendorName":
-                    matches = t.getVendor().toUpperCase().contains(insertedVendorName);
+                    matches = t.getVendor() != null && t.getVendor().toUpperCase().contains(insertedVendorName);
                     break;
 
             };
