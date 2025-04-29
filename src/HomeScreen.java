@@ -24,8 +24,8 @@ public class HomeScreen {
                     accountTransactions.makePayment();
                     break;
                 case "L":
-                    Ledger ledger = new Ledger();
-                    ledger.displayLedgerOptions();
+//                    Ledger ledger = new Ledger();
+//                    ledger.displayLedgerOptions();
                     break;
                 case "X":
                     System.out.println("---Exiting the application.---\n");
