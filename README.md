@@ -108,6 +108,13 @@ Project Features:
                              - For the "searchByVendorName" filter, prompt the user for a vendor's name, and filter the transactions based on whether the vendor name matches the input.
                                
                      - 6) Custom Search: prompt the user for the following search values.
+                           ![Sample Output](Images/customSearch1.png)
+                           ![Sample Output](Images/customSearch2.png)
+                           ![Sample Output](Images/customSearch3.png)
+                           ![Sample Output](Images/customSearch4.png)
+                           ![Sample Output](Images/customSearch5.png)
+                           ![Sample Output](Images/customSearch6.png)
+                          
                           - Create a custom serach class and inside delcare a method named customSearchOptionDisplay
                           - Ask user all the innput(start date, end date, vendor name, amout)
                           - Use scanner, get user and store it on varaibles
