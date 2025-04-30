@@ -32,6 +32,8 @@ Project Features:
              - Inside the method:
                 - Repeat same steps as Add deposit
                   
+                  ![Sample Output](Images/makePayment.png)
+                  
          - L) View Ledger
              - Create a new file inside the ledger folder called LedgerScreen.
              - Declare a Scanner object to handle user input.
