@@ -78,9 +78,13 @@ Project Features:
 
                 - R) Reports - A new screen that allows the user to run pre-defined reports or to run a custom search
                      - 1) Month To Date: Month to Date" (MTD) means from the start of the current month up to today
+                          ![Sample Output](Images/reports-monthToDate.png)
                      - 2) Previous Month: Previous Month refers to the entire month before the current one
-                     - 3) Year To Date: Year to Date (YTD) refers to the period from the beginning of the current year up to the present date 
+                          ![Sample Output](Images/PreviousMonth.png)
+                     - 3) Year To Date: Year to Date (YTD) refers to the period from the beginning of the current year up to the present date
+                          ![Sample Output](Images/reports-YearToDate.png)
                      - 4) Previous Year: Previous Year refers to the year that occurred immediately before the current year
+                          ![Sample Output](Images/reports-PreviousYear.png)
                      - 5) Search by Vendor :prompt the user for the vendor nameand display all entries for that vendor
                           - For those 5 conditions above I created:
                              - Created a method called filters inside the ReportFilters class.
