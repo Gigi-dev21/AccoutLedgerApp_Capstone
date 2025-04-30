@@ -94,6 +94,9 @@ Project Features:
                           ![Sample Output](Images/reports-PreviousYear.png)
                           
                      - 5) Search by Vendor :prompt the user for the vendor nameand display all entries for that vendor
+                          
+                          ![Sample Output](Images/reports-SearchByVendor.png)
+                          
                           - For those 5 conditions above I created:
                              - Created a method called filters inside the ReportFilters class.
                              - filters method accepts a filter type as an argument (e.g., "monthToDate", "previousMonth", "yearToDate", "previousYear", "searchByVendorName").
