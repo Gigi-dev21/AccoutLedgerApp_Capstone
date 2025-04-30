@@ -24,7 +24,8 @@ Project Features:
                 - Use a Filewriter to write in the csv file.
                 - Save the transaction details to a file as a properly formatted record.
                 - Once all done, call it from the HomeScreen class when the user selects the "D" option (for Deposit) in the home screen menu.
-                  ![Sample Output](images/sample-output.png)
+                  
+                  ![Sample Output](Images/AddDeposit.png)
                   
          - P) Make Payment (Debit):
              - In the AccountTransactions class, create a method called makePayment.
