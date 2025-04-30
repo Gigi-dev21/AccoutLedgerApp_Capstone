@@ -41,8 +41,10 @@ Project Features:
              - Inside the displayLedgerOptions, create a while loop that continuously displays the ledger screen options until the user chooses to exit (inputs "H").
              - Within the loop, use a switch statement to handle different menu choices:
                 - A) All - Display all entries
+                - 
                        ![Sample Output](Images/ledgerDisplayAll.png)
                 - D) Deposits - Display only the entries that are deposits into the account
+                - 
                         ![Sample Output](Images/ledgerDisplayDeposits.png)
                 - P) Payments - Display only the negative entries (or payments)
                    - For those 3 conditions above I created:
@@ -63,9 +65,11 @@ Project Features:
                             - alls getTransactionFromFile() to read and load all the transactions from the CSV file into the list.
                             - Create switch statement to print the header depending on the type
                             - Loops through each transaction in the list.
-                            - Uses another switch to decide If this transaction should be printed (based on the filter type).Example: If type == displayDepositOnly only print if amount > 0.
+                            - Uses another switch to decide If this transaction should be printed (based on the filter type).Example: If type == displayDepositOnly only print if amount > 0
                             - Prints the transaction if it matches the filter.
                             - After all that, go to LedgerScreen and call the method and pass the type.
+                              
+                              ![Sample Output](Images/ledgerDisplayPayments.png)
 
                 - R) Reports - A new screen that allows the user to run pre-defined reports or to run a custom search
                      - 1) Month To Date: Month to Date" (MTD) means from the start of the current month up to today
@@ -82,6 +86,7 @@ Project Features:
                              - Create a while lopp that will go over the transaction and filter based in the case.
                              - For each filter type (e.g., "monthToDate", "previousMonth", "yearToDate", etc.), check whether the transaction date falls within the desired range.
                              - For the "searchByVendorName" filter, prompt the user for a vendor's name, and filter the transactions based on whether the vendor name matches the input.
+                               
                      - 6) Custom Search: prompt the user for the following search values.
                           - Create a custom serach class and inside delcare a method named customSearchOptionDisplay
                           - Ask user all the innput(start date, end date, vendor name, amout)
