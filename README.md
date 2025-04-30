@@ -128,9 +128,16 @@ Project Features:
     
                          
                      - 0) Back - go back to the ledger page
+                          ![Sample Output](Images/BackToLedgerScreen.png)
+                          
                 - H) Home - go back to the home page
+                  
+                  ![Sample Output](Images/BackToHome.png)
               
-         - X) Exit
-            - Tell the program to stop running and close cleanly. 
+         - X) Exit - Tell the program to stop running and close cleanly. 
+           
+           ![Sample Output](Images/exitX.png)
+           
+            
            
   
