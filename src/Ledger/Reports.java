@@ -11,7 +11,7 @@ public class Reports {
 
     public void displayReportOptions() {
         while (!reportChoice.equals("0")) {
-            System.out.println("************** Reports Screen **************");
+            System.out.println("\n" + "************** Reports Screen **************");
             System.out.println("1) Month To Date");
             System.out.println("2) Previous Month");
             System.out.println("3) Year To Date");
@@ -42,7 +42,7 @@ public class Reports {
                     customSearch.customSearchOptionDisplay();
                     break;
                 case "0":
-                    System.out.println("Going back to the report page");
+                    System.out.println("-- Going back to the Ledger Screen --");
                     break;
                 default:
                     System.out.println("Invalid choice, please try again.");

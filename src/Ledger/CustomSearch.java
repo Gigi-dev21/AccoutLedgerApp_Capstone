@@ -30,7 +30,7 @@ public class CustomSearch {
 
         new TransactionsFilters().getTransactionFromFile();
 
-        System.out.println("************************** Custom Search Results *************************");
+        System.out.println("\n"+ "************************** Custom Search Results *************************"+"\n");
         System.out.printf("%-12s %-10s %-30s %-20s %-10s%n",
                 "Date", "Time", "Description", "Vendor", "Amount");
         System.out.println("--------------------------------------------------------------------------------------------");
@@ -44,7 +44,7 @@ public class CustomSearch {
             // Handle start date filter
             if (!startDateInserted.isEmpty()) {
                 try {
-                    LocalDate startDate = LocalDate.parse(startDateInserted);
+                    LocalDate startDate = LocalDate.parse(startDateInserted.trim());
                     if (LocalDate.parse(t.getDate()).isBefore(startDate)) {
                         match = false;
                     }
@@ -57,7 +57,7 @@ public class CustomSearch {
             // Handle end date filter
             if (!endDateInserted.isEmpty()) {
                 try {
-                    LocalDate endDate = LocalDate.parse(endDateInserted);
+                    LocalDate endDate = LocalDate.parse(endDateInserted.trim());
                     if (LocalDate.parse(t.getDate()).isAfter(endDate)) {
                         match = false;
                     }

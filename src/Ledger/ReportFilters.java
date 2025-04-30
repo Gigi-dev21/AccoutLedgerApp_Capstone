@@ -43,10 +43,10 @@ public class ReportFilters {
                 return;
         }
 
-        System.out.println("**********************"+ display+ "**********************");
+        System.out.println("\n" + "**********************" + " " + display + " " + "**********************" + "\n" );
         System.out.printf("%-12s %-10s %-30s %-20s %-10s%n",
                 "Date", "Time", "Description", "Vendor", "Amount");
-        System.out.println("-------------------------------------------------------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------------------------------------------");
 
 
         for (TransactionsClass t : TransactionsFilters.TransactionStore.allTransactions) {
@@ -59,22 +59,23 @@ public class ReportFilters {
 
             switch (type) {
                 case "monthToDate":
-                    matches= !transactionDate.isBefore(startOfMonth) && !transactionDate.isAfter(today);
+                    matches = !transactionDate.isBefore(startOfMonth) && !transactionDate.isAfter(today);
                     break;
                 case "previousMonth":
-                    matches= !transactionDate.isBefore(firstDayOfPreviousMonth) && !transactionDate.isAfter(lastDayOfPreviousMonth);
+                    matches = !transactionDate.isBefore(firstDayOfPreviousMonth) && !transactionDate.isAfter(lastDayOfPreviousMonth);
                     break;
                 case "yearToDate":
                     matches = !transactionDate.isBefore(startOfYear);
                     break;
                 case "previousYear":
-                    matches=!transactionDate.isBefore(startOfPreviousYear) && !transactionDate.isAfter(endOfPreviousYear);
+                    matches = !transactionDate.isBefore(startOfPreviousYear) && !transactionDate.isAfter(endOfPreviousYear);
                     break;
                 case "searchByVendorName":
                     matches = t.getVendor() != null && t.getVendor().toUpperCase().contains(insertedVendorName);
                     break;
 
-            };
+            }
+            ;
 
             if (matches) {
                 found = true;
