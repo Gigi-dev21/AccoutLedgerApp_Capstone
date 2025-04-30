@@ -109,10 +109,15 @@ Project Features:
                                
                      - 6) Custom Search: prompt the user for the following search values.
                            ![Sample Output](Images/customSearch1.png)
+                          
                            ![Sample Output](Images/customSearch2.png)
+                          
                            ![Sample Output](Images/customSearch3.png)
+                          
                            ![Sample Output](Images/customSearch4.png)
+                          
                            ![Sample Output](Images/customSearch5.png)
+                          
                            ![Sample Output](Images/customSearch6.png)
                           
                           - Create a custom serach class and inside delcare a method named customSearchOptionDisplay
