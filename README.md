@@ -41,7 +41,9 @@ Project Features:
              - Inside the displayLedgerOptions, create a while loop that continuously displays the ledger screen options until the user chooses to exit (inputs "H").
              - Within the loop, use a switch statement to handle different menu choices:
                 - A) All - Display all entries
-                - D) Deposits - Display only the entries that are deposits into theaccount
+                       ![Sample Output](Images/ledgerDisplayAll.png)
+                - D) Deposits - Display only the entries that are deposits into the account
+                        ![Sample Output](Images/ledgerDisplayDeposits.png)
                 - P) Payments - Display only the negative entries (or payments)
                    - For those 3 conditions above I created:
                      - Created a class named TransactionFilters.
