@@ -49,6 +49,9 @@ Project Features:
                   ![Sample Output](Images/ledgerDisplayDeposits.png)
                   
                 - P) Payments - Display only the negative entries (or payments)
+                  
+                   ![Sample Output](Images/ledgerDisplayPayments.png)
+                  
                    - For those 3 conditions above I created:
                      - Created a class named TransactionFilters.
                        - Inside TransactionFilters created 3 methods called:
@@ -71,7 +74,7 @@ Project Features:
                             - Prints the transaction if it matches the filter.
                             - After all that, go to LedgerScreen and call the method and pass the type.
                               
-                              ![Sample Output](Images/ledgerDisplayPayments.png)
+                             
 
                 - R) Reports - A new screen that allows the user to run pre-defined reports or to run a custom search
                      - 1) Month To Date: Month to Date" (MTD) means from the start of the current month up to today
