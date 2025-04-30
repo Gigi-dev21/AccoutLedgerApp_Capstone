@@ -9,3 +9,5 @@ date|time|description|vendor|amount
 2024-07-04|14:10|Holiday BBQ|Costco|200.00
 2024-01-05|11:00|New Year Gifts|Amazon|300.00
 2025-04-29|22:56:29|For rentals|Amazon|123.0
+2025-04-29|22:56:29|Payment for rentals|Amazon|-1234.0
+2025-04-29|23:01:33|For the rentals|Amazon|-1456.0
