@@ -112,13 +112,13 @@ Project Features:
                           
                            ![Sample Output](Images/customSearch2.png)
                           
-                           ![Sample Output](Images/customSearch3.png)
+                           ![Sample Output](Images/CustomSearch3.png)
                           
                            ![Sample Output](Images/customSearch4.png)
                           
                            ![Sample Output](Images/customSearch5.png)
                           
-                           ![Sample Output](Images/customSearch6.png)
+                           ![Sample Output](Images/cusromSearch6.png)
                           
                           - Create a custom serach class and inside delcare a method named customSearchOptionDisplay
                           - Ask user all the innput(start date, end date, vendor name, amout)
