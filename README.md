@@ -83,7 +83,7 @@ Project Features:
               
                      - 2) Previous Month: Previous Month refers to the entire month before the current one
                           
-                          ![Sample Output](Images/PreviousMonth.png)
+                          ![Sample Output](Images/reports-PreviousMonth.png)
                           
                      - 3) Year To Date: Year to Date (YTD) refers to the period from the beginning of the current year up to the present date
                           
