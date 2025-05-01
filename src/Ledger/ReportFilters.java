@@ -8,11 +8,22 @@ public class ReportFilters {
     static TransactionsFilters getTransactionFromFile = new TransactionsFilters();
 
     LocalDate today = LocalDate.now();
+    //withDayOfMonth(1) means 1st day of the same month,
     LocalDate startOfMonth = today.withDayOfMonth(1);
+
+    //minusMonths(1) will subtract 1 from the month
     LocalDate firstDayOfPreviousMonth = today.minusMonths(1).withDayOfMonth(1);
+
+   //withDayOfMonth(1) returns day of the same month - 1 day = last day of previous month
     LocalDate lastDayOfPreviousMonth = today.withDayOfMonth(1).minusDays(1);
+
+    //withDayOfYear(1) give first day of current year (January 1st)
     LocalDate startOfYear = today.withDayOfYear(1);
+
+    //minusYears(1) Moves to the same day of the previous year.
     LocalDate startOfPreviousYear = today.minusYears(1).withDayOfYear(1);
+
+    //withMonth(12): Sets the month to December.,withDayOfMonth(31): Sets the day to the 31st, which is the last day of December.
     LocalDate endOfPreviousYear = today.minusYears(1).withMonth(12).withDayOfMonth(31);
 
     public void filters(String type) {
@@ -59,15 +70,19 @@ public class ReportFilters {
 
             switch (type) {
                 case "monthToDate":
+                    //it doesn't have to be before this current month and must not be after today(currentdate)
                     matches = !transactionDate.isBefore(startOfMonth) && !transactionDate.isAfter(today);
                     break;
                 case "previousMonth":
+                    //Must not be before first Day Of PreviousMonth and must not be after last Day Of Previous Month
                     matches = !transactionDate.isBefore(firstDayOfPreviousMonth) && !transactionDate.isAfter(lastDayOfPreviousMonth);
                     break;
                 case "yearToDate":
+                    //must not be before start Of the Year
                     matches = !transactionDate.isBefore(startOfYear);
                     break;
                 case "previousYear":
+                    //must not be before start Of Previous Year and end Of the Previous Year
                     matches = !transactionDate.isBefore(startOfPreviousYear) && !transactionDate.isAfter(endOfPreviousYear);
                     break;
                 case "searchByVendorName":

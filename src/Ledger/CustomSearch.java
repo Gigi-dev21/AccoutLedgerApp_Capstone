@@ -44,11 +44,14 @@ public class CustomSearch {
             // Handle start date filter
             if (!startDateInserted.isEmpty()) {
                 try {
+//                   Parsing is required because both values are strings, and in order to
+//                   perform date comparisons or operations, they need to be converted into LocalDate objects.
                     LocalDate startDate = LocalDate.parse(startDateInserted.trim());
-                    if (LocalDate.parse(t.getDate()).isBefore(startDate)) {
+                    LocalDate startDateFromFile=LocalDate.parse(t.getDate());
+                    if (startDateFromFile.isBefore(startDate)) {
                         match = false;
                     }
-                } catch (DateTimeParseException e) {
+                } catch (Exception e) {
                     System.out.println("Invalid start date format. Skipping start date filter.");
                     match = false;
                 }
@@ -58,7 +61,8 @@ public class CustomSearch {
             if (!endDateInserted.isEmpty()) {
                 try {
                     LocalDate endDate = LocalDate.parse(endDateInserted.trim());
-                    if (LocalDate.parse(t.getDate()).isAfter(endDate)) {
+                    LocalDate endDateFromFile=LocalDate.parse(t.getDate());
+                    if (endDateFromFile.isAfter(endDate)) {
                         match = false;
                     }
                 } catch (DateTimeParseException e) {
@@ -84,7 +88,7 @@ public class CustomSearch {
                     if (t.getAmount() != amount) {
                         match = false;
                     }
-                } catch (NumberFormatException e) {
+                } catch (Exception e) {
                     System.out.println("Invalid amount entered. Skipping amount filter.");
                     match = false;
                 }
