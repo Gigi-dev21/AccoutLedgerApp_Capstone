@@ -196,4 +196,16 @@
    <img src="Images/Intersting3.png" alt="Sample Output">
    <br>
  <br>
+ <p><strong>What makes this code interesting is:</strong></p>
+  <br>
+<ul>
+   <li><strong>ArrayList in a Class:</strong> You can declare an ArrayList inside a class as static to make it globally available. This prevents the need to repeatedly declare it elsewhere, providing easy access throughout the program.</li>
+   <br>
+
+   <li><strong>Loading the File Once:</strong> The <code>getTransactionFromFile()</code> method loads the file once and stores the data in an ArrayList. This way, you can easily call the transactions from anywhere in the program without reloading the file, avoiding duplicate code and improving efficiency.</li>
+   <br>
+
+   <li><strong>Using <code>displayAllTransactionsFilter</code> with Switch Statements:</strong> The <code>displayAllTransactionsFilter</code> method takes an argument that determines which type of transactions to display. It uses a switch statement to assign a condition to a boolean variable (<code>shouldPrint</code>), which is then used to filter the transactions. This design simplifies the process of displaying different types of transactions based on user input.</li>
+</ul>
+
 
