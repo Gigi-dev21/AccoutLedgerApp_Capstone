@@ -11,49 +11,36 @@
 <h2>Project Features:</h2>
 <p>Home Screen with main menu options:</p>
 <ul>
-  <li>Create a new file and make a class named HomeScreen</li>
-  <li>Inside the class, create a method called displayHomeScreen</li>
-  <li>Declare a Scanner object to handle user input and assist with file writing operations.</li>
-  <li>Inside the method, create a while loop that continuously displays the home screen options until the user chooses to exit (inputs "X").</li>
-  <li>Within the loop, use a switch statement to handle different menu choices:</li>
+  <li>Inside the HomeScreen class, displayHomeScreen method displays a menu in a while loop, allowing the user to choose between adding a deposit, making a payment, viewing the ledger, or 
+  exiting.</li>
+  <li>It uses a Scanner to read input, handles choices with a switch statement, and continues until the user selects "X" to exit.</li>
+  <li>The logic for deposit and payment is Handled to the AccountTransactions class, and ledger options are handled by the LedgerScreen class.</li>
 </ul>
 
 <h2>D) Add Deposit:</h3>
 <img src="Images/AddDeposit.png" alt="Sample Output">
-<ul>
-  <li>In the AccountTransactions class, create a method called addDeposit.</li>
-  <li>Inside the method:</li>
-  <ul>
-    <li>Use a scanner object to access the user inputs.</li>
-    <li>Prompt the user to enter the deposit amount, description, and vendor name, and store these inputs in variables.</li>
-    <li>If not inserted a number/double, create a condition to avoid errors.</li>
-    <li>Display the user input and ask if it correct or not, if yes continue.</li>
-    <li>Use Java's date and time APIs to capture the current timestamp.</li>
-    <li>Use a FileWriter to write in the CSV file.</li>
-    <li>Save the transaction details to a file as a properly formatted record.</li>
-    <li>Once all done, call it from the HomeScreen class when the user selects the "D" option (for Deposit) in the home screen menu.</li>
-  </ul>
-</ul>
-
 
 <h2>P) Make Payment (Debit):</h3>
 <img src="Images/makePayment.png" alt="Sample Output">
+<h2><strong>The following steps were applied for both Add Deposit and Make Payment actions:</strong></h2>
 <ul>
-  <li>In the AccountTransactions class, create a method called makePayment.</li>
-  <li>Inside the method:</li>
-  <ul>
-    <li>Repeat same steps as Add Deposit.</li>
-  </ul>
+  <li>In the AccountTransactions class, create a method called handleTransactions</li>
+  <li>The handleTransactions method takes a transaction type ("addDeposit" or "makePayment") and shows the appropriate heading..</li>
+  <li>It collects user input for vendor name, amount (with numeric validation), and description.</li>
+   <li>The current date and time are obtained using LocalDateTime.now() and formatted separately using DateTimeFormatter for display and saving.</li>
+  <li>It adds a minus sign to the amount if it's a payment, formats the current date and time, and displays a confirmation summary.</li>
+  <li>If confirmed, it writes the transaction to a CSV file; if not, it cancels the action and returns to the home screen.</li>
+ 
 </ul>
 
 
-<h2>L) View Ledger</h3>
+<h2>L) View Ledger (Ledger Home Screen)</h3>
 <ul>
-  <li>Create a new file inside the ledger folder called LedgerScreen.</li>
-  <li>Declare a Scanner object to handle user input.</li>
-  <li>Inside a ledgerScreen class, create displayLedgerOptions methods.</li>
-  <li>Inside the displayLedgerOptions, create a while loop that continuously displays the ledger screen options until the user chooses to exit (inputs "H").</li>
-  <li>Within the loop, use a switch statement to handle different menu choices:</li>
+  <li>Inside the LedgerScreen class, the displayLedgerOptions() method displays a menu with options to view all transactions, deposits, payments, generate reports, or return to the home screen. 
+  </li>
+  <li>A Scanner object reads user input, and the input is converted to uppercase to ensure case-insensitivity..</li>
+  <li>The method uses a switch statement to handle different choices based on the user’s input and performs actions accordingly.</li>
+  <li>The method handles the transaction filtering to the TransactionsFilters class and the reports to the Reports class.</li>
 </ul>
 <ul>
   <li><h3>A) All - Display all entries</h3></li>
@@ -70,41 +57,18 @@
 </ul>
 <img src="Images/ledgerDisplayPayments.png" alt="Sample Output">
 
-<p>For those 3 conditions above I created:</p>
+<h2><strong>The following steps were applied for Display all, Deposit only and payments only:</strong></h2>
 <ul>
-  <li>Created a class named TransactionFilters.</li>
-  <li>Inside TransactionFilters created 3 methods called:</li>
-  <ul>
-    <li>TransactionStore:
-      <ul>
-        <li>This class holds a shared ArrayList called allTransactions.</li>
-        <li>It lets other classes access the list of transactions.</li>
-      </ul>
-    </li>
-    <li>getTransactionFromFile:
-      <ul>
-        <li>Reads the transactions.csv file using a Scanner</li>
-        <li>Use a while loop to read each line one by one and splits each line using .split("|") so we can separate the fields.</li>
-        <li>Convert the amount from a string to a double using Double.parseDouble().</li>
-        <li>Create a new TransactionsClass object using the values and adds it to the allTransactions ArrayList by calling the constructor you made.</li>
-      </ul>
-    </li>
-    <li>displayAllTransactionsFilter:
-      <ul>
-        <li>Receives a type (as a String) that decides what kind of transactions to display. (3 types displayDepositOnly, displayPaymentsOnly, displayAllTransactions)</li>
-        <li>alls getTransactionFromFile() to read and load all the transactions from the CSV file into the list.</li>
-        <li>Create switch statement to print the header depending on the type.</li>
-        <li>Loops through each transaction in the list.</li>
-        <li>Uses another switch to decide If this transaction should be printed (based on the filter type). Example: If type == displayDepositOnly only print if amount > 0.</li>
-        <li>Prints the transaction if it matches the filter.</li>
-        <li>After all that, go to LedgerScreen and call the method and pass the type.</li>
-      </ul>
-    </li>
-  </ul>
-</ul>
+   <li>Inside the TransactionsFilters class, I created two methods called getTransactionFromFile() and displayAllTransactionsFilter()</li>
+  <li>The getTransactionFromFile() method reads data from a CSV file and stores transaction details (date, time, description, vendor, amount) in an ArrayList called TransactionStore.allTransactions.</li>
+ <li>The displayAllTransactionsFilter() takes an argument. The method displays transactions based on the filter type provided, such as deposits, payments, or all transactions.</li>
+  <li>A switch statement is used to handle different filter types, determining which transactions to display (deposits, payments, or all).</li>
+  <li> A for loop iterates through each transaction in the TransactionStore.allTransactions ArrayList, checking if it matches the selected filter condition (deposit, payment, or all). If it matches, the transaction details are printed.</li>
+  <li>The method checks each transaction to see if it matches the selected filter condition and then prints the transaction details accordingly.</li>
+   
 
-<ul>
-  <li><h3>R) Reports - A new screen that allows the user to run pre-defined reports or to run a custom search</h2></li>
+
+ <li><h3>R) Reports - A new screen that allows the user to run pre-defined reports or to run a custom search</h3></li>
   <ul>
     <li><h3>1) Month To Date: Month to Date" (MTD) means from the start of the current month up to today</h3></li>
      <br>
@@ -133,16 +97,15 @@
   </ul>
   <p>For those 5 conditions above I created:</p>
   <ul>
-    <li>Created a method called filters inside the ReportFilters class.</li>
-    <li>filters method accepts a filter type as an argument (e.g., "monthToDate", "previousMonth", "yearToDate", "previousYear", "searchByVendorName").</li>
-    <li>Called the getTransactionFromFile from TransactionsFilters so that it can load the files.</li>
-    <li>Define the required date ranges (e.g., start of the current month, first day of the previous month, etc.) using LocalDate for comparisons.</li>
-    <li>Inside the filters method, use a switch statement to check the type of filter requested.</li>
-    <li>Create a while loop that will go over the transaction and filter based in the case.</li>
-    <li>For each filter type (e.g., "monthToDate", "previousMonth", "yearToDate", etc.), check whether the transaction date falls within the desired range.</li>
-    <li>For the "searchByVendorName" filter, prompt the user for a vendor's name, and filter the transactions based on whether the vendor name matches the input.</li>
+    <li> Created a class called ReportFilters, inside it created filters() method and it calls the getTransactionFromFile method from the TransactionsFilters class and displays them based 
+        on the selected filter type(arguments), such as monthToDate, previousMonth, yearToDate, previousYearr, or searchByVendorName.</li>
+    <li>The method checks for each filter type, setting the appropriate date range or vendor name to filter the transactions accordingly.</li>
+    <li>A for loop iterates over all transactions, checking if each transaction meets the filter criteria based on the selected filter type</li>
+    <li>If a transaction matches the filter condition, it is displayed with relevant details such as date, time, description, vendor, and amount.</li>
+    <li>If no matching transactions are found after checking all entries, the message "No transactions found." is displayed.</li>
+  
   </ul>
-  <br>
+
   <br>
   <li><h3>6) Custom Search: Prompt the user for the following search values.</h3></li>
   <img src="Images/customSearch1.png" alt="Sample Output">
@@ -162,12 +125,12 @@
   <br>
   <img src="Images/cusromSearch6.png" alt="Sample Output">
 
-  <p>Create a custom search class and inside declare a method named customSearchOptionDisplay.</p>
+  <p>The customSearch class has the following applied: </p>
   <ul>
-    <li>Ask user all the input (start date, end date, vendor name, amount).</li>
-    <li>Use scanner, get user and store it in variables.</li>
-    <li>Called the getTransactionFromFile from TransactionsFilters so that it can load the files.</li>
-    <li>Create a for loop that goes over the getTransactionFromFile and based on that filter it.</li>
+    <li>The customSearchOptionDisplay() method lets the user enter different search options like dates, description, vendor name, and amount to find specific transactions.</li>
+    <li>The method checks if the dates, description, vendor name, and amount are valid. If there’s an error in the input, it skips that part of the search.</li>
+    <li>If a transaction matches the search, it shows the details (date, time, description, vendor, and amount) in a clear format.</li>
+    <li>If no transactions match the search criteria, the method tells the user that no results were found.</li>
   </ul>
 <br/>
 
