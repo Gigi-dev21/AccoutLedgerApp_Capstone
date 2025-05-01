@@ -20,10 +20,10 @@ public class HomeScreen {
 
             switch (letterInserted){
                 case "D":
-                    accountTransactions.addDeposit();
+                    accountTransactions.handleTransactions("addDeposit");
                     break;
                 case "P":
-                    accountTransactions.makePayment();
+                    accountTransactions.handleTransactions("makePayment");
                     break;
                 case "L":
                     LedgerScreen ledger = new LedgerScreen();

@@ -24,6 +24,8 @@ public class AccountTransactions {
         System.out.print("Please enter vendor name: ");
         String vendorName = scanner.nextLine();
 
+        //This loop repeatedly prompts the user until a valid number is entered, using hasNextDouble()
+        // to check the input and nextDouble() to read it, ensuring only valid numeric input is accepted.
         double amount = 0;
         while (true) {
             System.out.print("Please enter the amount: ");
@@ -66,13 +68,5 @@ public class AccountTransactions {
             System.out.println("Returning to Home screen, Please re-enter the correct information.");
         }
     }
-
-
-
-    public void addDeposit() {
-       handleTransactions("addDeposit");
-    }
-
-    public void makePayment() {handleTransactions("makePayment");}
 
 }
