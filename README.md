@@ -187,3 +187,13 @@
 </ul>
 
 <h1>Interesting piece of my code</h1>
+ <img src="Images/Interesting1.png" alt="Sample Output">
+ <br>
+ <br>
+  <img src="Images/Interesting2 copy.png" alt="Sample Output">
+  <br>
+ <br>
+   <img src="Images/Intersting3.png" alt="Sample Output">
+   <br>
+ <br>
+
