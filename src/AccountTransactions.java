@@ -69,10 +69,8 @@ public class AccountTransactions {
 
 
 
-    public void addDeposit() {
-       handleTransactions("addDeposit");
-    }
 
-    public void makePayment() {handleTransactions("makePayment");}
+
+
 
 }
