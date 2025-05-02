@@ -11,104 +11,97 @@ public class CustomSearch {
 
         System.out.println("************** Custom Search Screen **************");
 
+        // start date input
+        LocalDate startDate = null;
+        while (true) {
+            System.out.print("Enter start date (YYYY-MM-DD) or leave blank: ");
+            String input = scanner.nextLine().trim();
+            if (input.isEmpty()) break;
+            try {
+                startDate = LocalDate.parse(input);
+                break;
+            } catch (Exception e) {
+                System.out.println("❌ Invalid start date format. Please use YYYY-MM-DD.");
+            }
+        }
 
-        System.out.print("Enter start date (YYYY-MM-DD) or leave blank: ");
-        String startDateInserted = scanner.nextLine();
+        // End date input
+        LocalDate endDate = null;
+        while (true) {
+            System.out.print("Enter end date (YYYY-MM-DD) or leave blank: ");
+            String input = scanner.nextLine().trim();
+            if (input.isEmpty()) break;
+            try {
+                endDate = LocalDate.parse(input);
+                break;
+            } catch (Exception e) {
+                System.out.println("❌ Invalid end date format. Please use YYYY-MM-DD.");
+            }
+        }
 
-        System.out.print("Enter end date (YYYY-MM-DD) or leave blank: ");
-        String endDateInserted = scanner.nextLine();
 
         System.out.print("Enter description or leave blank: ");
-        String descriptionInserted = scanner.nextLine().toLowerCase();
+        String descriptionInserted = scanner.nextLine().toLowerCase().trim();
 
         System.out.print("Enter vendor or leave blank: ");
-        String vendorNameInserted = scanner.nextLine().toLowerCase();
+        String vendorNameInserted = scanner.nextLine().toLowerCase().trim();
 
-        System.out.print("Enter amount or leave blank: ");
-        String amountInserted = scanner.nextLine();
+        Double amount = null;
+        while (true) {
+            System.out.print("Enter amount or leave blank: ");
+            String input = scanner.nextLine().trim();
+            if (input.isEmpty()) break;
+            try {
+                amount = Double.parseDouble(input);
+                break;
+            } catch (Exception e) {
+                System.out.println("❌ Invalid amount. Please enter a number.");
+            }
+        }
 
 
         new LedgerFilters().getTransactionFromFile();
 
-        System.out.println("\n"+ "************************** Custom Search Results *************************"+"\n");
+        System.out.println("\n************************** Custom Search Results *************************\n");
         System.out.printf("%-12s %-10s %-30s %-20s %-10s%n",
                 "Date", "Time", "Description", "Vendor", "Amount");
         System.out.println("--------------------------------------------------------------------------------------------");
 
         boolean found = false;
 
-
         for (TransactionsClass t : LedgerFilters.TransactionStore.allTransactions) {
             boolean match = true;
 
-            // Handle start date filter
-            if (!startDateInserted.isEmpty()) {
-                try {
-//                   Parsing is required because both values are strings, and in order to
-//                   perform date comparisons or operations, they need to be converted into LocalDate objects.
-                    LocalDate startDate = LocalDate.parse(startDateInserted.trim());
-                    LocalDate startDateFromFile=LocalDate.parse(t.getDate());
-                    if (startDateFromFile.isBefore(startDate)) {
-                        match = false;
-                    }
-                } catch (Exception e) {
-                    System.out.println("Invalid start date format. Skipping start date filter.");
-                    match = false;
-                }
+
+            LocalDate transactionDateFromFile = LocalDate.parse(t.getDate());
+
+            if (startDate != null && transactionDateFromFile.isBefore(startDate)){
+                match = false;
+            }
+            if (endDate != null && transactionDateFromFile.isAfter(endDate)){
+                match = false;
             }
 
-            // Handle end date filter
-            if (!endDateInserted.isEmpty()) {
-                try {
-                    LocalDate endDate = LocalDate.parse(endDateInserted.trim());
-                    LocalDate endDateFromFile=LocalDate.parse(t.getDate());
-                    if (endDateFromFile.isAfter(endDate)) {
-                        match = false;
-                    }
-                } catch (DateTimeParseException e) {
-                    System.out.println("Invalid end date format. Skipping end date filter.");
-                    match = false;
-                }
-            }
-
-            // Handle description filter
+            // Apply description, vendor, and amount filters
             if (!descriptionInserted.isEmpty() && !t.getDescription().toLowerCase().contains(descriptionInserted)) {
                 match = false;
             }
-
-            // Handle vendor filter
             if (!vendorNameInserted.isEmpty() && !t.getVendor().toLowerCase().contains(vendorNameInserted)) {
                 match = false;
             }
-
-            // Handle amount filter
-            if (!amountInserted.isEmpty()) {
-                try {
-                    double amount = Double.parseDouble(amountInserted);
-                    if (t.getAmount() != amount) {
-                        match = false;
-                    }
-                } catch (Exception e) {
-                    System.out.println("Invalid amount entered. Skipping amount filter.");
-                    match = false;
-                }
+            if (amount != null && t.getAmount() != amount) {
+                match = false;
             }
 
-            // If a transaction matches all filters, print the result
             if (match) {
                 found = true;
                 System.out.printf("%-12s %-10s %-30s %-20s %10.2f%n",
-                        t.getDate(),
-                        t.getTime(),
-                        t.getDescription(),
-                        t.getVendor(),
-                        t.getAmount());
+                        t.getDate(), t.getTime(), t.getDescription(), t.getVendor(), t.getAmount());
             }
         }
 
-        // If no matching transactions were found
         if (!found) {
-            System.out.println("No transactions found matching your search criteria.");
+            System.out.println("No transactions found!!");
         }
     }
 }
