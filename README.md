@@ -47,17 +47,17 @@
 <ul>
   <li><h3>A) All - Display all entries</h3></li>
 </ul>
-<img src="Images/ledgerDisplayAll.png" alt="Sample Output">
+<img src="Images/ScreenshotA.png" alt="Sample Output">
 
 <ul>
   <li><h3>D) Deposits - Display only the entries that are deposits into the account</h3></li>
 </ul>
-<img src="Images/ledgerDisplayDeposits.png" alt="Sample Output">
+<img src="Images/ScreenshotD.png" alt="Sample Output">
 
 <ul>
   <li><h3>P) Payments - Display only the negative entries (or payments)</h2></li>
 </ul>
-<img src="Images/ledgerDisplayPayments.png" alt="Sample Output">
+<img src="Images/ScreenshotP.png" alt="Sample Output">
 
 <h2><strong>The following steps were applied for Display all, Deposit only and payments only:</strong></h2>
 <ul>
