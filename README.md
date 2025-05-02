@@ -68,7 +68,6 @@
         <li>The method checks each transaction to see if it matches the selected filter condition and then prints the transaction details accordingly.</li>
    
 
-
  <li><h3>R) Reports - A new screen that allows the user to run pre-defined reports or to run a custom search</h3></li>
   <ul>
     <li><h3>1) Month To Date: Month to Date" (MTD) means from the start of the current month up to today</h3></li>
