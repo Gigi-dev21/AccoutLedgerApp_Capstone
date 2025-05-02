@@ -104,7 +104,6 @@
         <li>A <code>for</code> loop iterates over all transactions, checking if each transaction meets the filter criteria based on the selected filter type.</li>
         <li>If a transaction matches the filter condition, it is displayed with relevant details such as date, time, description, vendor, and amount.</li>
         <li>If no matching transactions are found after checking all entries, the message "No transactions found." is displayed.</li>
-  
   </ul>
 
   <br>
