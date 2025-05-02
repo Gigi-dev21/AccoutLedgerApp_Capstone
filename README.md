@@ -1,5 +1,5 @@
 <h2>Project goal:</h1>
-<p>The goal of this project is to create a Java CLI (Command Line Interface) application that helps users track financial transactions, deposits, and payments, for business or personal use.</p>
+<p> The goal of this project is to create a Java CLI (Command Line Interface) application that helps users track financial transactions, deposits, and payments, for business or personal use.</p>
 
 <h2>Main Steps:</h2>
 <ul>
