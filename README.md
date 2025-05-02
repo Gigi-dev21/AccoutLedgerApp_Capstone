@@ -33,7 +33,6 @@
         <li>The current date and time are obtained using <code>LocalDateTime.now()</code> and formatted separately using <code>DateTimeFormatter</code> for display and saving.</li>
         <li>It adds a minus sign to the amount if it's a payment, formats the current date and time, and displays a confirmation summary.</li>
         <li>If confirmed, it writes the transaction to a CSV file; if not, it cancels the action and returns to the home screen.</li>
- 
 </ul>
 
 
