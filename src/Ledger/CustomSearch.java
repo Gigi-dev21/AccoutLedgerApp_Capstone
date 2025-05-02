@@ -21,7 +21,7 @@ public class CustomSearch {
                 startDate = LocalDate.parse(input);
                 break;
             } catch (Exception e) {
-                System.out.println("❌ Invalid start date format. Please use YYYY-MM-DD.");
+                System.out.println("\n"+ "Invalid start date. Please use a valid date (YYYY-MM-DD)!!"+"\n");
             }
         }
 
@@ -35,7 +35,7 @@ public class CustomSearch {
                 endDate = LocalDate.parse(input);
                 break;
             } catch (Exception e) {
-                System.out.println("❌ Invalid end date format. Please use YYYY-MM-DD.");
+                System.out.println("\n"+"Invalid end date. Please use a valid end date (YYYY-MM-DD)!!"+"\n");
             }
         }
 
@@ -55,7 +55,7 @@ public class CustomSearch {
                 amount = Double.parseDouble(input);
                 break;
             } catch (Exception e) {
-                System.out.println("❌ Invalid amount. Please enter a number.");
+                System.out.println("\n"+ "Invalid amount. Please enter a number!!"+"\n");
             }
         }
 
