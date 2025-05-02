@@ -28,7 +28,7 @@ public class CustomSearch {
         String amountInserted = scanner.nextLine();
 
 
-        new TransactionsFilters().getTransactionFromFile();
+        new LedgerFilters().getTransactionFromFile();
 
         System.out.println("\n"+ "************************** Custom Search Results *************************"+"\n");
         System.out.printf("%-12s %-10s %-30s %-20s %-10s%n",
@@ -38,7 +38,7 @@ public class CustomSearch {
         boolean found = false;
 
 
-        for (TransactionsClass t : TransactionsFilters.TransactionStore.allTransactions) {
+        for (TransactionsClass t : LedgerFilters.TransactionStore.allTransactions) {
             boolean match = true;
 
             // Handle start date filter

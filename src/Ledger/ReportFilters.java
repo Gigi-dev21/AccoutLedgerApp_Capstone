@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class ReportFilters {
     Scanner scanner = new Scanner(System.in);
-    static TransactionsFilters getTransactionFromFile = new TransactionsFilters();
+    static LedgerFilters getTransactionFromFile = new LedgerFilters();
 
     LocalDate today = LocalDate.now();
     //withDayOfMonth(1) means 1st day of the same month,
@@ -60,7 +60,7 @@ public class ReportFilters {
         System.out.println("------------------------------------------------------------------------------------------------------------");
 
 
-        for (TransactionsClass t : TransactionsFilters.TransactionStore.allTransactions) {
+        for (TransactionsClass t : LedgerFilters.TransactionStore.allTransactions) {
             if (t.getDate() == null || t.getTime() == null || t.getDescription() == null || t.getVendor() == null || t.getAmount() == 0) {
                 continue;
             }

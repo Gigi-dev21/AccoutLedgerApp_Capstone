@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class LedgerScreen {
     Scanner scanner = new Scanner(System.in);
     String letterInserted = "";
-    TransactionsFilters transactionsFilters = new TransactionsFilters();
+    LedgerFilters ledgerFilters = new LedgerFilters();
     Reports reports = new Reports();
 
     public void displayLedgerOptions() {
@@ -21,13 +21,13 @@ public class LedgerScreen {
 
             switch (letterInserted) {
                 case "A":
-                    transactionsFilters.displayAllTransactionsFilter("displayAllTransactions");
+                    ledgerFilters.displayAllTransactionsFilter("displayAllTransactions");
                     break;
                 case "D":
-                    transactionsFilters.displayAllTransactionsFilter("displayDepositOnly");
+                    ledgerFilters.displayAllTransactionsFilter("displayDepositOnly");
                     break;
                 case "P":
-                    transactionsFilters.displayAllTransactionsFilter("displayPaymentsOnly");
+                    ledgerFilters.displayAllTransactionsFilter("displayPaymentsOnly");
                     break;
                 case "R":
                     reports.displayReportOptions();

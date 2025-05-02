@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class TransactionsFilters {
+public class LedgerFilters {
     public static class TransactionStore {
         public static ArrayList<TransactionsClass> allTransactions = new ArrayList<>();
     }
@@ -27,6 +27,13 @@ public class TransactionsFilters {
                 double amount = Double.parseDouble(fields[4].trim());
                 TransactionStore.allTransactions.add(new TransactionsClass(date, time, description, vendor, amount));
             }
+
+            // Sort by date + time descending (latest first)
+            TransactionStore.allTransactions.sort((t1, t2) -> {
+                String dt1 = t1.getDate() + " " + t1.getTime();
+                String dt2 = t2.getDate() + " " + t2.getTime();
+                return dt2.compareTo(dt1);
+            });
 
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
