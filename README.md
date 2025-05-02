@@ -42,6 +42,7 @@
         <li>The method uses a <code>switch</code> statement to handle different choices based on the user’s input and performs actions accordingly.</li>
         <li>The method handles the transaction filtering to the <code>TransactionsFilters</code> class and the reports to the <code>Reports</code> class.</li>
 </ul>
+
 <ul>
   <li><h3>A) All - Display all entries</h3></li>
 </ul>
